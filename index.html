@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Page metadata, the retro display font, and the stylesheet used by the editor. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gerador de Posts Win95</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- The app has an editor on the left and a live canvas preview on the right. -->
+<div class="app">
+  <div class="win"><div class="tb">Gerador.exe</div><div class="body">
+    <!-- These IDs are read by script.js to choose a template and canvas dimensions. -->
+    <label for="tpl">Modelo</label>
+    <select id="tpl">
+      <option value="anuncio">Anúncio</option>
+      <option value="dica">Dica</option>
+      <option value="depoimento">Depoimento</option>
+      <option value="portfolio">Portfólio</option>
+    </select>
+    <label for="fmt">Formato</label>
+    <select id="fmt">
+      <option value="1080x1080">Feed quadrado (1080×1080)</option>
+      <option value="1080x1350">Feed vertical (1080×1350)</option>
+      <option value="1080x1920">Stories / Reels (1080×1920)</option>
+    </select>
+    <!-- Each color palette is populated with buttons by script.js. -->
+    <label>Cor de fundo</label>
+    <div class="sw" id="sw"></div>
+    <label>Cor do quadrado interno</label>
+    <div class="sw" id="inner-sw"></div>
+    <!-- Text inputs use IDs that match the fields in the sample templates. -->
+    <label for="ttl">Título</label><input id="ttl" maxlength="80">
+    <label for="txt">Texto</label><textarea id="txt" maxlength="300"></textarea>
+    <label for="cta">Chamada / botão</label><input id="cta" maxlength="40">
+    <label for="win">Nome da janela</label><input id="win" maxlength="30">
+    <label for="foot">Rodapé (@ ou site)</label><input id="foot" maxlength="40" value="@suafirma">
+    <!-- The uploaded image is used only by the Portfólio template. -->
+    <label for="file">Imagem (modelo Portfólio)</label><input id="file" type="file" accept="image/*">
+    <!-- The button exports the canvas, while the message reports download status. -->
+    <button id="dl">Baixar PNG</button>
+    <div id="msg"></div>
+  </div></div>
+  <!-- script.js draws the selected post into this canvas. -->
+  <div class="win"><div class="tb">Prévia</div><div class="prev"><canvas id="c" width="1080" height="1080"></canvas></div></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
